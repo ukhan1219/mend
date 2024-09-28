@@ -1,6 +1,6 @@
 import { json } from "express/lib/response";
 
-const urlBase = 'http://98.81.175.225/LAMPAPI'
+const urlBase = 'http://98.81.175.225/api'
 const extension = 'php'
 
 let userID = 0;
