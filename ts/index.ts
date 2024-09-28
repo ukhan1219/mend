@@ -7,8 +7,6 @@ let userID = 0;
 let firstName = "";
 let lastName = "";
 
-
-
 function doResetPassword() {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('token');
