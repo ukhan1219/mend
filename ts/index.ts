@@ -7,6 +7,47 @@ let userID = 0;
 let firstName = "";
 let lastName = "";
 
+function doResetPassword() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    const newPassword = (document.getElementById("newPassword") as HTMLInputElement).value;
+
+    if (newPassword === "") {
+        alert("Please enter a new password");
+    }
+
+    let tmp = { "token": token, "newPassword": newPassword };
+
+    let payload = JSON.stringify(tmp)
+
+    let url = urlBase + "/reset." + extension;
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", url, true);
+
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let jsonObject = JSON.parse(xhr.responseText);
+                let err = jsonObject.err;
+
+                if (err) {
+                    showToast(err);
+                } else {
+                    showToast("Password reset successfully");
+                    window.location.href = "login.html";
+                }
+            }
+        };
+        xhr.send(payload);
+    } catch (error) {
+        showToast(error);
+    }
+}
+
 function doForgotPassword() {
     let email = (document.getElementById("email") as HTMLInputElement).value;
 
@@ -24,7 +65,7 @@ function doForgotPassword() {
 
     xhr.open("POST", url, true);
 
-    xhr.setRequestHeader("Content-type", "application/json;  charset=utf-8");
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
     try {
         xhr.onreadystatechange = function () {
@@ -36,6 +77,7 @@ function doForgotPassword() {
                     showToast(err)
                 } else {
                     showToast("A password reset link has been sent to your email");
+
                 }
             }
         };
@@ -82,6 +124,7 @@ function doRegister() {
                     // might not need 
                 } else {
                     showToast("Registration successful");
+                    window.location.href = "login.html";
                 }
             }
         };
