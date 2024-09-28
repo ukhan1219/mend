@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Generate a reset token and link
         $token = bin2hex(random_bytes(50)); // Generate a random token
-        $resetLink = "http://yourdomain.com/reset_password.php?token=" . $token;
+        $resetLink = "http://98.81.175.225/reset_password.php?token=" . $token;
 
         // Save the token in the database with an expiration time
         $query = "UPDATE users SET reset_token = ?, token_expiration = DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE email = ?";
