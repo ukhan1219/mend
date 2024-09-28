@@ -1,5 +1,5 @@
 <?php
-// Include database connection
+
 include_once('config.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $token = $data['token'];
     $newPassword = $data['newPassword'];
 
-    // Validate the token and check if it is not expired
+
     $query = "SELECT * FROM users WHERE reset_token = ? AND token_expiration > NOW()";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $token);
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Update the password
+
         $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
         $query = "UPDATE users SET password = ?, reset_token = NULL, token_expiration = NULL WHERE reset_token = ?";
         $stmt = $conn->prepare($query);
