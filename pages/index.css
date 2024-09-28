@@ -12,8 +12,8 @@
   }
 
   .mend-logo {
-    width: 100px;
-    height: 50px;
+    width: 120px;
+    height: 70px;
     margin-left: 20px;
   }
   
@@ -21,7 +21,7 @@
     display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 30px;
     margin-left: auto;
   }
   
@@ -56,6 +56,12 @@
     color: #415CC0;
   }
 
+  .mend-header{
+    width: 100%;
+    height: 195px;
+    object-fit: cover;
+  }
+
   .mend-logo2 {
     display: block;
     margin: 5px auto; 
@@ -72,7 +78,7 @@
     padding: 20px; 
     width: 500px; 
     position: absolute; 
-    top: 50%; 
+    top: 70%; 
     right: 200px; 
     transform: translateY(-50%); 
   }
@@ -81,17 +87,51 @@
     font-size: 24px;
     font-weight: bold;
     position: absolute;
-    top: 250px;
-    left: 785px;
+    top: 380px;
+    left: 791px;
     color: #5C77D9;
   }
 
   .features-box {
     background-color: #d0d4ec; 
-    border: 2px solid #99A9E3; 
+    border: 5px solid #99A9E3; 
     border-radius: 10px; 
     padding: 20px;
     width: 60%; 
-    margin-left: 50%;
-    margin-top: 20px; 
+    height: 300px;
+    margin: 20px auto;
+  }
+
+  .features-title{
+    color: #5C77D9;
+  }
+
+  .how-to-use{
+    color:#99A9E3;
+  }
+
+  .start-journaling-btn {
+    background-color: #415CC0;
+    color: #FAFAFD;
+    border: none;
+    border-radius: 20px; 
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto; 
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+
+  .start-journaling-btn:hover{
+    background-color:#344975;
+    cursor: pointer;
+  }
+
+  .footer{
+    background-color: #415CC0;
+    padding: 30px;
+    text-align: center;
+    color: #FAFAFD;
   }
