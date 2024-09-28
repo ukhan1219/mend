@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS entries (
 ) Engine = InnoDB;
 
 -- Dummy Data
-INSERT INTO users (FirstName, LastName, Username, Password, UserID) VALUES
+INSERT INTO users (FirstName, LastName, Username, Password) VALUES
 ('Leo', 'Salazar', 'lsalazar', 'test'),
 ('Usman', 'Khan', 'ukhan', 'test'),
 ('Lily', 'Vrionis', 'lvri', 'test'),
