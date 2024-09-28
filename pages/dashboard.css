@@ -1,0 +1,52 @@
+.navbar {
+    background-color: #415CC0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  body{
+    margin: 0;
+  }
+  
+  .mend-logo {
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+  }
+  
+  .hamburger-menu {
+    background-color: #415CC0;
+    border: none;
+    padding: 10px;
+    margin-right: 20px;
+    cursor: pointer;
+    width: 0px;
+    height: 40px;
+    font-size: 24px;
+  }
+  
+  .hamburger-menu:hover {
+    opacity: 0.8;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+  }
+  
+  .textbox {
+    padding: 10px;
+    border: 10px solid #99A9E3;
+    border-radius: 50px;
+    box-shadow: -20px 0px 30px rgba(0, 0, 0, 0.1);
+    width: 600px; 
+    height: 500px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-10%, -50%);
+  }
