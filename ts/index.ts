@@ -183,6 +183,51 @@ function doLogin() {
     }
 }
 
+function doJournalEntry() {
+    // TODO: change the element id's to whatever they actually are
+    let entryDate = (document.getElementById("entryDate") as HTMLInputElement).value;
+    let entryContent = (document.getElementById("entryContent") as HTMLInputElement).value;
+
+    if (entryDate === "" || entryContent === "") {
+        showToast("Please fill in both the date and content");
+        return;
+    }
+
+    // Assuming userID is already available from login
+    let tmp = { userID: userID, entryDate: entryDate, entryContent: entryContent };
+
+    let payload = JSON.stringify(tmp);
+
+    let url = urlBase + "/addJournalEntry." + extension;
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", url, true);
+
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let jsonObject = JSON.parse(xhr.responseText);
+                let err = jsonObject.err;
+
+                if (err) {
+                    showToast(err);
+                    return;
+                }
+
+                showToast("Journal entry added successfully");
+                // Optionally, you can redirect the user to another page or reset the form fields
+                window.location.href = "journalEntries.html";
+            }
+        };
+        xhr.send(payload);
+    } catch (error) {
+        showToast(error);
+    }
+}
+
 function showToast(message) {
     const toast = document.getElementById('toast');
     const toastMessage = document.getElementById('toast-message');
