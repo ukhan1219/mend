@@ -91,6 +91,7 @@
     border: 2px solid #99A9E3; 
     border-radius: 10px; 
     padding: 20px;
-    width: 100%; 
+    width: 60%; 
+    margin-left: 50%;
     margin-top: 20px; 
   }
