@@ -11,8 +11,6 @@ behaviors which trouble you or impact your day-to-day, Mend is here to help you 
 - Database: MariaDB
 - API: Google's Gemini AI API
 - Authentication: OAuth 2.0, Personally Hosted Login
-- Security: SSL/TLS encryption
-- Testing: Jest, Enzyme
 - Deployment: AWS Lightsail
 - Version Control: Git
 - Project Management: Trello
