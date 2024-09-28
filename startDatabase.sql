@@ -1,4 +1,4 @@
--- mariadb -u yourusername -p < startDatabase.sql
+-- mariadb -u root -p < startDatabase.sql
 
 CREATE DATABASE IF NOT EXISTS mend;
 USE mend;
@@ -8,11 +8,11 @@ CREATE TABLE IF NOT EXISTS users (
     `ID` INT NOT NULL AUTO_INCREMENT,
     `dateCreated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `dateLastLoggedIn` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `firstName` VARCHAR(50) NOT NULL DEFAULT ``,
-    `lastName` VARCHAR(50) NOT NULL DEFAULT ``,
-    `username` VARCHAR(50) NOT NULL DEFAULT ``,
-    `email` VARCHAR(100) NOT NULL DEFAULT ``,
-    `password` VARCHAR(255) NOT NULL DEFAULT ``,
+    `firstName` VARCHAR(50) NOT NULL DEFAULT "",
+    `lastName` VARCHAR(50) NOT NULL DEFAULT "",
+    `username` VARCHAR(50) NOT NULL DEFAULT "",
+    `email` VARCHAR(100) NOT NULL DEFAULT "",
+    `password` VARCHAR(255) NOT NULL DEFAULT "",
     `reset_token` VARCHAR(255) DEFAULT NULL,
     `token_expiration` DATETIME DEFAULT NULL,  
     PRIMARY KEY (`ID`)
