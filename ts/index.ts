@@ -274,4 +274,8 @@ function readCookie() {
         alert("You are not logged in!");
         window.location.href = "login.html";
     }
+
+    return { userID, firstName, lastName };
 }
+
+export {readCookie};
