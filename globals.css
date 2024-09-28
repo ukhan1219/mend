@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,10 +15,18 @@ body {
 
 .container {
   height: 100vh;
+=======
+html{
+  background-color: #FAFAFD;
+}
+body {
+  font-family: 'Fredoka', sans-serif;
+>>>>>>> 228880f (rebase)
   margin: 0;
   padding: 0;
 }
 
+<<<<<<< HEAD
 .left {
   width: 50%;
   background-color: #2A2B30;
@@ -86,4 +95,76 @@ body {
   width: 620px;
   height: 400px;
   margin-bottom: 20px;
+=======
+.navbar {
+  background-color: #415CC0;
+  color: #fff;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+}
+
+.center-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center-nav li {
+  margin-right: 20px;
+}
+
+.center-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.image-header{
+  width: 100%;
+  height: 300px;
+  background-color: rgb(156, 156, 156);
+}
+
+.about,.features {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-box{
+  border-width: 7px;
+  border-color: #415CC0;
+  border-radius: 25px;
+}
+
+.cta {
+  background-color: #415CC0;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+}
+
+footer {
+  background-color: #415CC0;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+>>>>>>> 228880f (rebase)
 }
