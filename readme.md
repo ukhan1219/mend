@@ -4,4 +4,3 @@
 - images will be saved in the images folder (logos, icons)
 - backend code will be saved in ts folder
 - api code will be saved in LAMPAPI folder
-yo
