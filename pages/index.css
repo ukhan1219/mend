@@ -22,7 +22,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    margin-right: 50px;
+    margin-left: auto;
   }
   
   .nav-links li {
@@ -36,7 +36,7 @@
   }
   
   .nav-links a:hover {
-    color: #FAFAFD;
+    color: #b2b2d5;
   }
   
   .login-btn {
@@ -54,4 +54,43 @@
   .login-btn:hover {
     background-color: #FAFAFD;
     color: #415CC0;
+  }
+
+  .mend-logo2 {
+    display: block;
+    margin: 5px auto; 
+    width: 500px; 
+    height: 300px; 
+    margin-left: 210px;
+    margin-top: 70px;
+  }
+
+  .about-box {
+    background-color: #fafafd; 
+    border-radius: 10px; 
+    border: 2px solid #5c77d9;
+    padding: 20px; 
+    width: 500px; 
+    position: absolute; 
+    top: 50%; 
+    right: 200px; 
+    transform: translateY(-50%); 
+  }
+
+  .about-title{
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 250px;
+    left: 785px;
+    color: #5C77D9;
+  }
+
+  .features-box {
+    background-color: #d0d4ec; 
+    border: 2px solid #99A9E3; 
+    border-radius: 10px; 
+    padding: 20px;
+    width: 100%; 
+    margin-top: 20px; 
   }
