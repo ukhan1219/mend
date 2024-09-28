@@ -30,8 +30,6 @@ CREATE TABLE IF NOT EXISTS journalEntries (
     FOREIGN KEY (`userID`) REFERENCES users(`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-
-
 --  create the `weeklyAnalysis` table
 CREATE TABLE IF NOT EXISTS weeklyAnalysis (
     `ID` INT NOT NULL AUTO_INCREMENT,
