@@ -26,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo json_encode(["err" => "Invalid or expired token."]);
     }
+    $stmt->close();
+    $conn->close();
 } else {
     echo json_encode(["err" => "Invalid request."]);
 }

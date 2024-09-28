@@ -33,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo json_encode(["err" => "Invalid username or password."]);
     }
+    $stmt->close();
+    $conn->close();
 } else {
     echo json_encode(["err" => "Invalid request."]);
 }
