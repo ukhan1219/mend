@@ -1,0 +1,92 @@
+/* Account creation styling */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.left {
+    width: 50%;
+    background-color: #2A2B30;
+}
+
+.right {
+    width: 50%;
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+.right h2 {
+    margin-bottom: 20px;
+}
+
+.right form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right input {
+    padding: 10px;
+    margin-bottom: 20px;
+    /*added a black border around user and pw input*/
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.right button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2A2B30;
+    color: #fff;
+    cursor: pointer;
+}
+
+.right button:hover {
+    background-color: #000000;
+}
+
+.underline-link {
+    text-decoration: underline;
+    color: #5C77D9;
+    cursor: pointer;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.underline-link:hover {
+    color: #415CC0;
+}
+
+/* logo adjustments */
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mend-logo {
+    width: 590px;
+    height: 400px;
+    margin-bottom: 170px;
+}
