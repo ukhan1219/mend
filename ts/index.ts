@@ -7,21 +7,42 @@ let userID = 0;
 let firstName = "";
 let lastName = "";
 
-function showToast(message) {
-    const toast = document.getElementById('toast');
-    const toastMessage = document.getElementById('toast-message');
+function doForgotPassword() {
+    let email = (document.getElementById("email") as HTMLInputElement).value;
 
-    if (toastMessage) {
-        toastMessage.textContent = message;
+    if (email === "") {
+        showToast("Please enter your email");
     }
-    toast?.classList.remove('hidden');
-    toast?.classList.add('visible');
 
-    setTimeout(() => {
-        toast?.classList.remove('visible');
-        toast?.classList.add('hidden');
-    }, 3000);
+    let tmp = { email: email };
 
+    let payload = JSON.stringify(tmp);
+
+    let url = urlBase + "/forgot." + extension;
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("POST", url, true);
+
+    xhr.setRequestHeader("Content-type", "application/json;  charset=utf-8");
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let jsonObject = JSON.parse(xhr.responseText);
+                let err = jsonObject.err;
+
+                if (err) {
+                    showToast(err)
+                } else {
+                    showToast("A password reset link has been sent to your email");
+                }
+            }
+        };
+        xhr.send(payload);
+    } catch (error) {
+        showToast(error)
+    }
 }
 
 function doRegister() {
@@ -32,12 +53,12 @@ function doRegister() {
     let password = (document.getElementById("password") as HTMLInputElement).value;
     let email = (document.getElementById("email") as HTMLInputElement).value;
 
-    if (firstName === "" || lastName === "" || username === ""  || password === "" || email === "") {
+    if (firstName === "" || lastName === "" || username === "" || password === "" || email === "") {
         showToast("Please fill in all fields");
         return;
     }
 
-    let tmp = { firstName: firstName, lastName: lastName, email: email, username: username, password: password};
+    let tmp = { firstName: firstName, lastName: lastName, email: email, username: username, password: password };
 
     let payload = JSON.stringify(tmp);
 
@@ -54,7 +75,7 @@ function doRegister() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 let jsonObject = JSON.parse(xhr.responseText);
                 let err = jsonObject.err;
-                
+
                 if (err) {
                     showToast(err);
                     return;
@@ -78,10 +99,10 @@ function doLogin() {
     let username = document.getElementById("username")?.ariaValueMax;
     let password = document.getElementById("password")?.ariaValueMax;
 
-    let tmp = {username: username, password: password};
+    let tmp = { username: username, password: password };
     let jsonPayload = JSON.stringify(tmp);
 
-    let url = urlBase  + "/login." + extension;
+    let url = urlBase + "/login." + extension;
 
     let xhr = new XMLHttpRequest();
 
@@ -117,11 +138,28 @@ function doLogin() {
     }
 }
 
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+
+    if (toastMessage) {
+        toastMessage.textContent = message;
+    }
+    toast?.classList.remove('hidden');
+    toast?.classList.add('visible');
+
+    setTimeout(() => {
+        toast?.classList.remove('visible');
+        toast?.classList.add('hidden');
+    }, 3000);
+
+}
+
 function saveCookie() {
     let minutes = 20;
     let date = new Date();
     date.setTime(date.getTime() + (minutes * 60 * 1000));
-    document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userID=" + userID + ";expires=" + date.toGMTString();
+    document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userID=" + userID + ";expires=" + date.toUTCString();
 }
 
 function readCookie() {
