@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,18 +14,15 @@ body {
 
 .container {
   height: 100vh;
-=======
 html{
   background-color: #FAFAFD;
 }
 body {
   font-family: 'Fredoka', sans-serif;
->>>>>>> 228880f (rebase)
   margin: 0;
   padding: 0;
 }
 
-<<<<<<< HEAD
 .left {
   width: 50%;
   background-color: #2A2B30;
@@ -95,7 +91,6 @@ body {
   width: 620px;
   height: 400px;
   margin-bottom: 20px;
-=======
 .navbar {
   background-color: #415CC0;
   color: #fff;
@@ -166,5 +161,4 @@ footer {
   bottom: 0;
   position: absolute;
   width: 100%;
->>>>>>> 228880f (rebase)
 }
