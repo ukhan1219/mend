@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
     `email` VARCHAR(100) NOT NULL DEFAULT ``,
     `password` VARCHAR(255) NOT NULL DEFAULT ``,
     `reset_token` VARCHAR(255) DEFAULT NULL,
-    `token_expiration` DATETIME DEFAULT NULL,  
+    `token_expiration` DATETIME DEFAULT NULL,
     PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB;
 
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS journalEntries (
     `dateCreated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `dateLastEdited`, DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`ID`),
-    FOREIGN KEY (`userID`) REFERNECES users(`ID`) ON DELETE CASCADE
+    FOREIGN KEY (`userID`) REFERENCES users(`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 --  create the `weeklyAnalysis` table
