@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS journalEntries (
 ) ENGINE=InnoDB;
 
 
+
 --  create the `weeklyAnalysis` table
 CREATE TABLE IF NOT EXISTS weeklyAnalysis (
     `ID` INT NOT NULL AUTO_INCREMENT,
