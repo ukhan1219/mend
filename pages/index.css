@@ -78,7 +78,7 @@
     padding: 20px; 
     width: 500px; 
     position: absolute; 
-    top: 70%; 
+    top: 80%; 
     right: 200px; 
     transform: translateY(-50%); 
   }
@@ -87,7 +87,7 @@
     font-size: 24px;
     font-weight: bold;
     position: absolute;
-    top: 380px;
+    top: 65%;
     left: 791px;
     color: #5C77D9;
   }
@@ -100,6 +100,7 @@
     width: 60%; 
     height: 300px;
     margin: 20px auto;
+    box-shadow: -20px 20px 0px rgba(153, 169, 227);
   }
 
   .features-title{
