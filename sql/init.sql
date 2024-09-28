@@ -44,7 +44,7 @@ INSERT INTO users (FirstName, LastName, Username, Password, UserID) VALUES
 ('Lily', 'Vrionis', 'lvri', 'test'),
 ('Thashin', 'Bhuiyan', 'shin', 'test');
 
-INSERT INTO journals (Title, Description) VALUES
+INSERT INTO journals (Title, Description, UserID) VALUES
 ('Thoughts', 'where i write my thoughts', '1'),
 ('Feelings', 'where i write my feelings', '2'),
 ('Likes', 'where i write my likes', '3'),
