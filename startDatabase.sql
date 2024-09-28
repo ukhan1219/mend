@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
     `email` VARCHAR(100) NOT NULL DEFAULT "",
     `password` VARCHAR(255) NOT NULL DEFAULT "",
     `reset_token` VARCHAR(255) DEFAULT NULL,
-    `token_expiration` DATETIME DEFAULT NULL,  
+    `token_expiration` DATETIME DEFAULT NULL,
     PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB;
 
