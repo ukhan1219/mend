@@ -133,7 +133,7 @@ function doRegister() {
 }
 
 
-/*
+
 function doLogin() {
     userID = 0;
     firstName = "";
@@ -183,52 +183,52 @@ function doLogin() {
         showToast(err);
     }
 }
-*/
 
-function doLogin(event) {
-    event.preventDefault();  // Prevent form submission
 
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+// function doLogin(event) {
+//     event.preventDefault();  // Prevent form submission
 
-    if (username === "" || password === "") {
-        showToast("Please fill in both fields");
-        return;
-    }
+//     let username = document.getElementById("username").value;
+//     let password = document.getElementById("password").value;
 
-    let tmp = { username: username, password: password };
-    let jsonPayload = JSON.stringify(tmp);
-    let url = urlBase + "/login.php";
+//     if (username === "" || password === "") {
+//         showToast("Please fill in both fields");
+//         return;
+//     }
 
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
+//     let tmp = { username: username, password: password };
+//     let jsonPayload = JSON.stringify(tmp);
+//     let url = urlBase + "/login.php";
 
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+//     let xhr = new XMLHttpRequest();
+//     xhr.open("POST", url, true);
 
-    try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
-                console.log(xhr.status); // Log status code
-                console.log(xhr.responseText);  // Log the server response
-                if (xhr.status == 200) {
-                    let jsonObject = JSON.parse(xhr.responseText);
-                    if (jsonObject.success) {
-                        saveCookie();
-                        window.location.href = "account.html";
-                    } else {
-                        showToast(jsonObject.message);
-                    }
-                } else {
-                    showToast("Server error: " + xhr.status);
-                }
-            };
-            xhr.send(jsonPayload);
-        }
-    } catch (err) {
-        showToast(err);
-    }
+//     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-}
+//     try {
+//         xhr.onreadystatechange = function () {
+//             if (xhr.readyState == 4) {
+//                 console.log(xhr.status); // Log status code
+//                 console.log(xhr.responseText);  // Log the server response
+//                 if (xhr.status == 200) {
+//                     let jsonObject = JSON.parse(xhr.responseText);
+//                     if (jsonObject.success) {
+//                         saveCookie();
+//                         window.location.href = "account.html";
+//                     } else {
+//                         showToast(jsonObject.message);
+//                     }
+//                 } else {
+//                     showToast("Server error: " + xhr.status);
+//                 }
+//             };
+//             xhr.send(jsonPayload);
+//         }
+//     } catch (err) {
+//         showToast(err);
+//     }
+
+// }
 
 function doJournalEntry() {
     // TODO: change the element id's to whatever they actually are

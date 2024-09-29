@@ -1,97 +1,58 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+$inData = getRequestInfo();
 
-// Database connection details
-$servername = "localhost";  // Replace with your server address
-$username = "your_db_username";  // Replace with your database username
-$password = "your_db_password";  // Replace with your database password
-$dbname = "your_db_name";  // Replace with your database name
+$username = $inData['username'];
+$password = $inData['password'];
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "API", "APIPASSWORD", "mend");
 
-// Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Specify content type for the response
-header('Content-Type: application/json');
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get JSON input and decode it
-    $data = json_decode(file_get_contents("php://input"), true);
-
-    // Check if username and password are set in the data
-    if (isset($data["username"]) && isset($data["password"])) {
-        // Sanitize the input (this step is optional since you're using prepared statements, but it's good practice)
-        $username = filter_var($data["username"], FILTER_SANITIZE_STRING);
-        $password = $data["password"];
-
-        // Prepare the SQL statement
-        $stmt = $conn->prepare("SELECT ID, firstName, lastName, password FROM users WHERE username = ?");
+    returnWithError($conn->connect_error);
+} else {
+    // Prepare the SQL query to get the stored hashed password for the username
+    $stmt = $conn->prepare("SELECT id, firstName, lastName, password FROM users WHERE username=?");
+    if ($stmt) {
         $stmt->bind_param("s", $username);
         $stmt->execute();
-        
-        // Get the result
         $result = $stmt->get_result();
 
-        // Check if any rows are returned
-        if ($result->num_rows > 0) {
-            $user = $result->fetch_assoc();
-
-            // Verify the password
-            if (password_verify($password, $user['password'])) {
-                // Login successful, return user details
-                $id = $user['ID'];
-                $firstName = $user['firstName'];
-                $lastName = $user['lastName'];
-
-                echo json_encode([
-                    "success" => true, 
-                    "message" => "Login successful", 
-                    "user" => [
-                        "id" => $id,
-                        "firstName" => $firstName,
-                        "lastName" => $lastName
-                    ]
-                ]);
+        if ($row = $result->fetch_assoc()) {
+            $hashedPassword = $row['password'];
+            // Verify the password entered by the user with the stored hashed password
+            if (password_verify($password, $hashedPassword)) {
+                // Password is correct, return user details
+                $retValue = '{"id":' . $row['id'] . ',"firstName":"' . $row['firstName'] . '","lastName":"' . $row['lastName'] . '","error":""}';
+                sendResultInfoAsJson($retValue);
             } else {
-                // Password mismatch
-                echo json_encode([
-                    "success" => false,
-                    "message" => "Invalid username or password."
-                ]);
+                // Invalid password
+                returnWithError("Invalid Password");
             }
         } else {
-            // Username not found
-            echo json_encode([
-                "success" => false,
-                "message" => "Invalid username or password."
-            ]);
+            // Invalid username
+            returnWithError("Invalid Username");
         }
 
-        // Close statement
         $stmt->close();
     } else {
-        // Invalid request, missing username or password in JSON data
-        echo json_encode([
-            "success" => false,
-            "message" => "Invalid request. Missing username or password."
-        ]);
+        returnWithError($conn->error);
     }
 
-    // Close connection
     $conn->close();
-} else {
-    // Request is not a POST
-    echo json_encode([
-        "success" => false,
-        "message" => "Invalid request method."
-    ]);
+}
+
+function getRequestInfo() {
+    return json_decode(file_get_contents('php://input'), true);
+}
+
+function sendResultInfoAsJson($obj) {
+    header('Content-type: application/json');
+    echo $obj;
+}
+
+function returnWithError($err) {
+    $retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+    sendResultInfoAsJson($retValue);
 }
 
 ?>
