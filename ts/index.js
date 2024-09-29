@@ -1,4 +1,8 @@
 
+header("Access-Control-Allow-Origin: *"); // CORS header
+header("Content-Type: application/json; charset=UTF-8");
+
+
 const urlBase = 'http://98.81.175.225/api';
 const extension = 'php';
 
@@ -91,9 +95,10 @@ function doRegister() {
 
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
+    let email = document.getElementById("email").value;
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
-    let email = document.getElementById("email").value;
+    
 
 
     if (firstName === "" || lastName === "" || username === "" || password === "" || email === "") {
@@ -101,7 +106,7 @@ function doRegister() {
         return;
     }
 
-    let tmp = { firstName, lastName, email, username, password };
+    let tmp = { firstName:firstName, lastName:lastName, email:email, username:username, password:password };
 
     let payload = JSON.stringify(tmp);
     let url = urlBase + "/register." + extension;
@@ -119,8 +124,6 @@ function doRegister() {
 
                 if (err) {
                     showToast(err);
-
-                    return; // might not need 
 
                 } else {
                     showToast("Registration successful");
