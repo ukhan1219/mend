@@ -56,26 +56,31 @@ function fetchJournalEntries() {
 }
 
 function viewEntry(id) {
-    // Find the entry with the given ID
     let entry = journalEntriesData.find(e => e.ID === id);
+    console.log("Redirecting to entry: ", entry); // Debugging line
     if (entry) {
-        // Populate the view entry container with entry details
-        document.getElementById("view-entry-date").textContent = entry.entryDate;
-        document.getElementById("view-entry-content").textContent = entry.entryContent;
-
-        // Toggle visibility of containers
-        document.getElementById("add-entry-container").style.display = "none";
-        document.getElementById("view-entry-container").style.display = "block";
+        const entryUrl = `pages/viewEntry.html?id=${entry.ID}&date=${encodeURIComponent(entry.entryDate)}&content=${encodeURIComponent(entry.entryContent)}`;
+        console.log("Redirecting to: ", entryUrl); // Debugging line
+        window.location.href = entryUrl;
     } else {
         showToast("Entry not found.");
     }
 }
 
-function showAddEntry() {
-    // Toggle visibility of containers
-    document.getElementById("view-entry-container").style.display = "none";
-    document.getElementById("add-entry-container").style.display = "block";
+
+
+function closeModal() {
+    document.getElementById("entryModal").style.display = "none";
 }
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    let modal = document.getElementById("entryModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 
 function checkLogin() {
     let { userID } = readCookie(); // Check the login status by reading the cookie
