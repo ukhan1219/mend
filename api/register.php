@@ -1,26 +1,42 @@
 <?php
 
-require 'config.php';
+$inData = getRequestInfo();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $data = json_decode(file_get_contents("php://input"), true);
-    $firstName = $data['firstName'];
-    $lastName = $data['lastName'];
-    $email = $data['email'];
-    $username = $data['username'];
-    $password = $data['password'];
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+$firstName = $inData['firstName'];
+$lastName = $inData['lastName'];
+$email = $inData['email'];
+$username = $inData['username'];
+$password = $inData['password'];
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("INSERT into users (firstName, lastName, username, email, password) VALUES (?,?,?,?,?)");
-    $stmt->bind_param("sssss", $firstName, $lastName, $username, $email, $hashedPassword);
-    
+$conn = new mysqli("localhost", "API", "APIPASSWORD", "mend");
+
+if ($conn->connect_error){
+    returnWithError($conn->connect_error);
+} else{
+    $stmt = $conn->prepare("INSERT INTO users (firstName, lastName, email, username, password) VALUES (?,?,?,?,?)");
+    $stmt->bind_param("sssss",  $firstName, $lastName, $email, $username, $hashedPassword);
     $stmt->execute();
-    
     $stmt->close();
     $conn->close();
+    returnWithError("");
 
-} else {
-    echo json_encode(["err" => "Invalid request."]);
+}
+
+function getRequestInfo() {
+    return  json_decode(file_get_contents('php://input'), true);
+}
+
+function sendResultInfoAsJson($obj) 
+{
+    header('Content-type: application/json');
+    echo $obj;
+}
+
+function returnWithError( $err ) 
+{
+    $retValue = '{"error":"' . $err . '"}';
+	sendResultInfoAsJson( $retValue );
 }
 
 ?>
