@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Analysis</title>
+    <!-- Optional: Add styles for layout -->
+    <link rel="stylesheet" href="path-to-your-styles.css">
+</head>
+<body onload="loadAnalysis()">
+
+    <!-- Navbar or header if needed -->
+    <nav>
+        <a href="../index.html"><strong>HOME</strong></a>
+        <a href="mailto:example@example.com"><strong>CONTACT</strong></a>
+    </nav>
+
+    <!-- Main content for displaying the analysis -->
+    <div class="container">
+        <h1>Your Weekly Analysis</h1>
+        <p id="analysis">Loading your analysis...</p>
+    </div>
+
+    <!-- Footer if needed -->
+    <footer>
+        <a href="https://github.com/ukhan1219/mend" target="_blank">GitHub</a>
+        <a href="mailto:lsvrionis@gmail.com">Contact</a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../dist/index.js"></script> <!-- For readCookie -->
+    <script src="../path-to-your-api.js"></script> <!-- Adjust path for getWeeklyAnalysis -->
+    <script src="../dist/analysis.js"></script> <!-- Your analysis.js -->
+</body>
+</html>
