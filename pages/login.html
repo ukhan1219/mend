@@ -15,7 +15,7 @@
         </div>
         <div class="right">
             <h2>Log In</h2>
-            <form id="loginForm" onsubmit="doLogin(event); return False;">
+            <form id="loginForm" onsubmit="return doLogin();">
                 <input id="username" type="text" placeholder="Username">
                 <input id="password" type="password" placeholder="Password">
                 <button type="submit">Sign in</button>
@@ -24,5 +24,6 @@
             <a href="register.html" class="underline-link">Create Account</a>
         </div>
     </div>
+    <script type="text/typescript" src="../ts/index.js"></script>
 </body>
 </html>
