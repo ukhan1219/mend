@@ -72,10 +72,10 @@
       document.getElementById("analysis-text").textContent = analysisText;
     }
 
-    function getDummyAnalysis(entryDate) {
-      // AI analysis logic
-      return `AI Analysis for ${entryDate}: This is a sample analysis text.`;
-    }
-  </script>
+    <!-- Scripts -->
+    <script src="../ts/index.js"></script> <!-- For readCookie -->
+    <script src="../ts/api/getWeeklyAnalysis.js"></script> <!-- Adjust path for getWeeklyAnalysis -->
+    <script src="Analysis.js"></script> <!-- Your analysis.js -->
+
 </body>
 </html>
