@@ -130,7 +130,7 @@ function doRegister() {
         };
         xhr.send(payload);
     } catch (error) {
-        showToast(error);
+        console.log(error)
     }
 }
 
