@@ -134,51 +134,70 @@ function doRegister() {
     }
 }
 
-function doLogin() {
-    userID = 0;
-    firstName = "";
-    lastName = "";
+function doLogin(event) {
+    // Prevent form from submitting the traditional way
+    event.preventDefault();
 
-    let username = (document.getElementById("username") as HTMLInputElement).value;
-    let password = (document.getElementById("password") as HTMLInputElement).value;
+    // Initialize variables
+    let userID = 0;
+    let firstName = "";
+    let lastName = "";
 
+    // Get the values entered in the username and password fields
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    // Create a JSON payload with the entered username and password
     let tmp = { username: username, password: password };
     let jsonPayload = JSON.stringify(tmp);
 
+    // Define the URL for the login API
     let url = urlBase + "/login." + extension;
 
+    // Create a new XMLHttpRequest
     let xhr = new XMLHttpRequest();
 
+    // Open a POST request to the login API
     xhr.open("POST", url, true);
 
+    // Set the request headers
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
+    // Try sending the request
     try {
         xhr.onreadystatechange = function () {
+            // When the request is completed successfully
             if (this.readyState == 4 && this.status == 200) {
+                // Parse the response
                 let jsonObject = JSON.parse(xhr.responseText);
-                let err = jsonObject.err;
-                userID = jsonObject.id;
 
-                if (userID < 1) {
-                    showToast("Username/Password combination incorrect");
-                    return;
+                // Check for success in the response
+                if (jsonObject.success) {
+                    // Get user data and save it in cookies
+                    userID = jsonObject.user.id;
+                    firstName = jsonObject.user.firstName;
+                    lastName = jsonObject.user.lastName;
+
+                    // Save the user's information in cookies or session storage
+                    saveCookie();
+
+                    // Redirect to the account page
+                    window.location.href = "account.html";
+                } else {
+                    // Handle error (like invalid username or password)
+                    showToast(jsonObject.message || "Login failed.");
                 }
-
-                firstName = jsonObject.firstName;
-                lastName = jsonObject.lastName;
-
-                saveCookie();
-
-                window.location.href = "test.html";
             }
         };
+
+        // Send the JSON payload with the request
         xhr.send(jsonPayload);
-    }
-    catch (err) {
-        showToast(err);
+    } catch (err) {
+        // If an error occurs, show the error message
+        showToast("An error occurred: " + err.message);
     }
 }
+
 
 function doJournalEntry() {
     // TODO: change the element id's to whatever they actually are
