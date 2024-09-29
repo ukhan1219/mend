@@ -198,7 +198,7 @@ function doLogin(event) {
 
     let tmp = { username: username, password: password };
     let jsonPayload = JSON.stringify(tmp);
-    let url = "your_php_script_path/login.php";  // Make sure this URL is correct
+    let url = "https://98.81.175.225/LAMPAPI/login.php";  // Make sure this URL is correct
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -213,7 +213,7 @@ function doLogin(event) {
                     let jsonObject = JSON.parse(xhr.responseText);
                     if (jsonObject.success) {
                         saveCookie();
-                        window.location.href = "account.html";  // Redirect on success
+                        window.location.href = "test.html";  // Redirect on success
                     } else {
                         showToast(jsonObject.message);
                     }
