@@ -94,7 +94,9 @@ body {
   margin: 0;
   font-size: 16px;
   color: #415CC0;
+  opacity: 0%;
 }
+
 
 .container {
   display: flex;
