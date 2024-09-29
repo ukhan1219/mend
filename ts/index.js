@@ -191,7 +191,8 @@ function doLogout() {
     window.location.href = "index.html";
 }
 
-function doLogin() {
+function doLogin(event) {
+    event.preventDefault();
     userID = 0;
     firstName = "";
     lastName = "";
