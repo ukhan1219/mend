@@ -1,3 +1,5 @@
+html { scroll-behavior: smooth; }
+
 .navbar {
     background-color: #415CC0;
     padding: 0;
@@ -71,31 +73,47 @@
     margin-top: 70px;
   }
 
-  .about-box {
-    background-color: #fafafd; 
-    border-radius: 10px; 
-    border: 2px solid #5c77d9;
+  .about-box { 
     padding: 20px; 
     width: 500px; 
     height: 150px;
     position: absolute; 
-    top: 550px; 
+    top: 530px; 
     left: 50%;
     transform: translateY(-50%); 
     z-index: 1;
     margin-bottom: 50px;
+    text-align: right;
   }
 
   .about-title{
     font-size: 24px;
     font-weight: bold;
     position: absolute;
-    top: 400px;
+    top: 430px;
     left: 60%;
     color: #5C77D9;
     z-index: 2;
-    transform: translateX(-50%);
+    text-align: right;
+    transform: translateY(20%); 
+    transform: translateX(4%); 
   }
+  
+.typewriter{
+    overflow: hidden; 
+    border-right: .15em solid #5C77D9;
+    white-space: nowrap; 
+    margin: 0;
+    letter-spacing: .1em;
+    animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #415CC0; }
+}
 
   .features-box {
     top: 800px; 
@@ -139,6 +157,11 @@
     margin: 20px auto; 
     margin-top: 70px;
     margin-bottom: 100px;
+    transition: background-color 0.1s ease;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .start-journaling-btn:hover{

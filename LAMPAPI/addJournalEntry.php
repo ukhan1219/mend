@@ -1,42 +1,39 @@
 <?php
 
-    include_once('config.php');
+$inData = getRequestInfo();
+$entryDate = $inData['entryDate'];
+$entryContent = $inData['entryContent'];
 
-    // JSON response array
-    $response = array();
+$conn = new mysqli("localhost", "API", "APIPASSWORD", "mend");
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        
-        $data = json_decode(file_get_contents("php://input"), true);
-
-        // Check if the required fields are set
-        if (isset($data['userID']) && isset($data['entryDate']) && isset($data['entryContent'])) {
-            
-            $userID = $data['userID'];
-            $entryDate = $data['entryDate'];
-            $entryContent = $data['entryContent'];
-            $query = "INSERT INTO journalEntries (userID, entryDate, entryContent, dateCreated) VALUES (?, ?, ?, NOW())";
-
-            // Prepare the statement to avoid SQL injection
-            if ($stmt = $conn->prepare($query)) {
-                
-                $stmt->bind_param("iss", $userID, $entryDate, $entryContent);
-
-                if ($stmt->execute()) {
-                    $response['success'] = true;
-                    $response['message'] = "Journal entry added successfully";
-                } else {
-                    $response['err'] = "Error: " . $stmt->error;
-                }
-                $stmt->close();
-            } else {
-                $response['err'] = "Failed to prepare statement";
-            }
-        } else {
-            $response['err'] = "Missing required fields (userID, entryDate, entryContent)";
-        }
+if ($conn->connect_error){
+    returnWithError($conn->connect_error);
+} else {
+    $stmt = $conn->prepare("INSERT INTO journalEntries (userID, entryDate, entryContent) VALUES (?,?,?)");
+    $stmt->bind_param("sss", $inData['userID'], $entryDate, $entryContent);
+    if ($stmt->execute()) {
+        returnWithError(""); // Success
     } else {
-        $response['err'] = "Invalid request method";
+        returnWithError($stmt->error); // Error from SQL execution
     }
-    echo json_encode($response);
+    $stmt->close();
+    $conn->close();
+
+}
+function getRequestInfo(){
+    return json_decode(file_get_contents('php://input'), true);
+}
+
+function sendResultInfoAsJson($obj) 
+{
+    header('Content-type: application/json');
+    echo $obj;
+}
+
+function returnWithError( $err ) 
+{
+    $retValue = '{"error":"' . $err . '"}';
+	sendResultInfoAsJson( $retValue );
+}
+
 ?>

@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <script src="../ts/index.js"></script>
 </head>
-<script src="../ts/index.js"></script>
 
-<body onload="checkLogin()">
+<body onload="checkLogin(); fetchJournalEntries();">
   <nav class="navbar">
     <img src="../images/mend-text-white.png" class="mend-logo" alt="Mend Logo">
     <!-- navbar links -->
@@ -26,8 +26,19 @@
   </nav>
 
   <div class="container">
+    <!-- Left side displaying existing journal entries -->
     <div class="left-side">
       <h2>Entries:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="journal-entries-body">
+          <!-- Journal entries will be injected here -->
+        </tbody>
+      </table>
       <div class="Entries">
         <div class="single-entry">
           <div class="entry-icon-date">
@@ -39,8 +50,14 @@
       <a href="#"><i class="icon-size fa-regular fa-plus"></i> Add Entry</a>
     </div>
     <div class="right-side">
-      <textarea placeholder="Enter text here..." type="text" class="textbox" id="text-box" rows="20" cols="20"></textarea>
-      <button class="cta">Submit Entry</button>
+      <form id="journal-entry-form" onsubmit="doJournalEntry(); return false;">
+        <div>
+          <label for="entryDate">Date:</label>
+          <input type="date" id="entryDate" required>
+        </div>
+        <div>
+          <textarea class="textbox" id="entryContent" placeholder="Enter text here..." rows="10" required></textarea>
+        <button type="submit" class="cta">Submit Entry</button>
     </div>
   </div>
 

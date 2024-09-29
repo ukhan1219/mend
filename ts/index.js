@@ -1,10 +1,56 @@
-
 const urlBase = 'https://98.81.175.225/LAMPAPI';
 const extension = 'php';
 
 let userID = 0;
 let firstName = "";
 let lastName = "";
+
+function fetchJournalEntries() {
+    readCookie();
+
+    let url = urlBase + "/fetchJournalEntries." + extension;
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    let tmp = { userID: userID };
+    let payload = JSON.stringify(tmp);
+
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let jsonObject = JSON.parse(xhr.responseText);
+                let journalEntries = jsonObject.results;
+
+                let journalEntriesBody = document.getElementById("journal-entries-body");
+                journalEntriesBody.innerHTML = "";
+
+                // Populate the journal entries
+                if (journalEntries && Array.isArray(journalEntries)) {
+                    for (let i = 0; i < journalEntries.length; i++) {
+                        let entry = journalEntries[i];
+                        let row = document.createElement("tr");
+
+                        row.setAttribute("data-id", entry.ID);
+                        row.innerHTML = `
+                        <td>${entry.entryDate}</td>
+                        <td>${entry.entryContent}</td>
+                    `;
+
+                        journalEntriesBody.appendChild(row);
+                    }
+                } else {
+                    showToast("No journal entries found or invalid response from the server.");
+                }
+            }
+        };
+        xhr.send(payload);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
 
 function checkLogin() {
     let { userID } = readCookie(); // Check the login status by reading the cookie
@@ -14,7 +60,6 @@ function checkLogin() {
         window.location.href = "login.html"; // Redirect to login page
     }
 }
-
 
 function doResetPassword() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -150,7 +195,8 @@ function doLogout() {
     window.location.href = "index.html";
 }
 
-function doLogin() {
+function doLogin(event) {
+    event.preventDefault();
     userID = 0;
     firstName = "";
     lastName = "";
