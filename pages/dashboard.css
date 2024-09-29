@@ -7,7 +7,8 @@
   }
 
   body{
-    margin: 0;
+    margin: auto;
+    font-family: 'Fredoka', sans-serif;
   }
   
   .mend-logo {
@@ -31,24 +32,73 @@
     opacity: 0.8;
   }
 
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    margin: 30px;
+    float:right;
+    transition: margin-left 0.5s ease-in-out;
+  }
+    .left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    margin: 30px;
+    float:left;
+    background-color: #d0d4ec; 
+    border: 5px solid #99A9E3; 
+    border-radius: 10px; 
+    padding: 20px;
+    width: 150px; 
+    height: 400px;
+    margin: 30px;
+    transition: width 0.5s ease-in-out;
+  }
+  .left-side:hover {
+    width: 250px;
+  }
+  .file-size{
+    font-size: 40px;
+    color: #415CC0;
+  }
+  .file-size:hover{
+    color: #223782;
+  }
   .container {
     display: flex;
+    height: max-content;
+    padding: 30px;
+    flex-wrap: wrap;
+    margin: auto;
     justify-content: center;
-    align-items: center;
-    height: 100vh; 
+
   }
-  
+  .file-bar{
+    background-color: #99a9e3;
+  }
   .textbox {
-    padding: 1vw;;
-    border: 10px solid #99A9E3;
+    padding: 1vw;
+    border: 10px solid #99a9e3;
     border-radius: 50px;
-    box-shadow: -20px 0px 30px rgba(0, 0, 0, 0.1);
-    height: 500px;
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-10%, -50%);
+    box-shadow: -20px 20px 0px rgba(153, 169, 227);
+    height: 400px;
     font-size: 2vw;
-    width: 40vw;
-    
+    width: 30vw;
+    margin-bottom: 20px; 
+  }
+  .cta {
+    background-color: #415CC0;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+  }
+  textarea { resize:vertical; }
+  .single-entry{
+    inline-t:block;
   }
