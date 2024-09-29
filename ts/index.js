@@ -373,6 +373,7 @@ function readCookie() {
 
     return { userID, firstName, lastName };
 }
+window.readCookie = readCookie;
 
 // export default readCookie;
-export { readCookie }; // named export
+// export { readCookie }; // named export
