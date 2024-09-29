@@ -124,11 +124,11 @@ function doRegister() {
 
                 if (err) {
                     showToast(err);
-
-                } else {
+                    return;
+                } 
                     showToast("Registration successful");
                     window.location.href = "login.html";
-                }
+                
             }
         };
         xhr.send(payload);
