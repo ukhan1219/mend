@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Analysis</title>
     <!-- Optional: Add styles for layout -->
-    <link rel="stylesheet" href="analysis.css">
+    <link rel="stylesheet" href="Analysis.css">
 </head>
 
 <body>
@@ -54,8 +54,10 @@
     <a href="mailto:lsvrionis@gmail.com"><i class="fa-solid fa-envelope"></i></a>
   </footer>
     <script src="../ts/index.js"></script> <!-- For readCookie -->
-    <script src="../ts/api/getWeeklyAnalysis.js"></script> <!-- Adjust path for getWeeklyAnalysis -->
-    <script src="Analysis.js"></script> <!-- Your analysis.js -->
+    <script type="module" src="../ts/api/getWeeklyAnalysis.js"></script> <!-- Adjust path for getWeeklyAnalysis -->
+    <script type="module" src="Analysis.js"></script> <!-- Your analysis.js -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
 </body>
 </html>
