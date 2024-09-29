@@ -62,6 +62,7 @@ body {
   height: 400px;
   margin: 30px;
   transition: width 0.5s ease-in-out;
+  transform: translateY(30px) ;
 }
 
 .left-side:hover {
@@ -94,7 +95,9 @@ body {
   margin: 0;
   font-size: 16px;
   color: #415CC0;
+  text-align: right;
 }
+
 
 .container {
   display: flex;
@@ -139,10 +142,12 @@ textarea {
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background-color: #415CC0;
   display: flex;
-  justify-content: flex-end;
-  padding: 25px;
+  padding: 10px;
 }
 
 .footer i {
@@ -154,3 +159,8 @@ textarea {
 .footer a:hover i {
   transform: translateY(-7px);
 }
+
+th {
+  text-align: right;
+}
+

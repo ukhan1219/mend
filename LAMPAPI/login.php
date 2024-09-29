@@ -7,11 +7,14 @@ $password = $inData['password'];
 
 $conn = new mysqli("localhost", "API", "APIPASSWORD", "mend");
 
+
 if ($conn->connect_error) {
     returnWithError($conn->connect_error);
+
 } else {
     // Prepare the SQL query to get the stored hashed password for the username
     $stmt = $conn->prepare("SELECT id, firstName, lastName, password FROM users WHERE username=?");
+
     if ($stmt) {
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -19,8 +22,10 @@ if ($conn->connect_error) {
 
         if ($row = $result->fetch_assoc()) {
             $hashedPassword = $row['password'];
+            
             // Verify the password entered by the user with the stored hashed password
             if (password_verify($password, $hashedPassword)) {
+                
                 // Password is correct, return user details
                 $retValue = '{"id":' . $row['id'] . ',"firstName":"' . $row['firstName'] . '","lastName":"' . $row['lastName'] . '","error":""}';
                 sendResultInfoAsJson($retValue);
@@ -32,12 +37,10 @@ if ($conn->connect_error) {
             // Invalid username
             returnWithError("Invalid Username");
         }
-
         $stmt->close();
     } else {
         returnWithError($conn->error);
     }
-
     $conn->close();
 }
 
