@@ -2,12 +2,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
     <link rel="stylesheet" href="account.css">
+    <script type="text/typescript" src="ts/index.ts"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="left">
@@ -15,16 +18,20 @@
         </div>
         <div class="right">
             <h2>Create Account</h2>
-            <form>
-                <input type="name" placeholder="First Name">
-                <input type="last" placeholder="Last Name">
-                <input type="user" placeholder="Username">
-                <input type="email" placeholder="Email">
-                <input type="pass" placeholder="Password">
-                <button>Sign Up</button>
+            <form id="registerForm" onsubmit="doRegister(); return false;">
+                <input type="name" id="firstName" placeholder="First Name" required>
+                <input type="last" id="lastName" placeholder="Last Name" required>
+                <input type="user" id="username" placeholder="Username" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button class="buttonSignup" type="submit">Sign Up</button>
             </form>
             <a href="login.html" class="underline-link">Already have an account?</a>
         </div>
     </div>
+    <div id="toast" class="toast hidden"></div>
+    <span id="toast-message"></span>
+    </div>
 </body>
+
 </html>
