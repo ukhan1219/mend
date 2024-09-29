@@ -14,7 +14,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
   <script src="../ts/index.js"></script>
   <script src="Analysis.js"></script>
-  <script src="../ts/api/getWeeklyAnalysis.js"></script>
+  <script type="module" src="../ts/api/getWeeklyAnalysis.js"></script>
+  <script type="module">
+    import { loadAnalysis } from '../ts/api/getWeeklyAnalysis.js';
+    document.getElementById('view-analysis-btn').addEventListener('click', loadAnalysis);
+  </script>
+
 </head>
 
 <body onload="checkLogin(); fetchJournalEntries();">
@@ -61,7 +66,7 @@
           <button type="submit" class="cta">Submit Entry</button>
         </div>
         <div class="analysis-link">
-          <button id="view-analysis-btn" onclick="loadAnalysis()">View Weekly Analysis</button>
+          <button id="view-analysis-btn" onclick="loadAnalysis();">View Weekly Analysis</button>
         </div>
 
         <div id="analysis-container">
