@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .navbar {
   background-color: #415CC0;
   padding: 0;
@@ -56,6 +57,67 @@ body{
   color: #415CC0;
 }
 
+=======
+  body{
+    margin: auto;
+    font-family: 'Fredoka', sans-serif;
+  }
+  
+
+  
+  .navbar {
+    background-color: #415CC0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  .mend-logo {
+    width: 120px;
+    height: 70px;
+    margin-left: 20px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 30px;
+    margin-left: auto;
+  }
+  
+  .nav-links li {
+    margin-right: 50px;
+  }
+  
+  .nav-links a {
+    color: #FAFAFD;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+    .footer{
+      background-color: #415CC0;
+      display: flex;
+      justify-content: flex-end;
+      padding: 25px;
+    }
+  
+    .footer i{
+      font-size: 35px;
+      color: #FAFAFD;
+      margin: 0 10px;
+    }
+  
+    .footer a:hover i{
+      transform: translateY(-7px);
+    }
+>>>>>>> 21cc3f56a96c491ac2c0045cacdc3f48dd0793df
   .right-side {
     display: flex;
     flex-direction: column;
@@ -82,13 +144,32 @@ body{
   .left-side:hover {
     width: 250px;
   }
-  .file-size{
+  .single-entry {
+    display: flex;
+    align-items: center;
+  }
+  
+  .file-size {
     font-size: 40px;
     color: #415CC0;
+    margin-right: 10px;
   }
-  .file-size:hover{
-    color: #223782;
+  
+  .entry-date {
+    opacity: 0; 
+    display: inline-block; 
   }
+  
+  .entry-date p {
+    margin: 0; 
+    display: inline; 
+    opacity: 0;
+  }
+  
+  .entry-date:hover {
+    opacity: 1; 
+  }
+  
   .container {
     display: flex;
     height: max-content;
@@ -122,7 +203,12 @@ body{
     margin: 10px auto;
     display: block;
   }
+  .cta :hover{
+    background-color: white;
+    color: #415CC0;
+  }
   textarea { resize:vertical; }
+<<<<<<< HEAD
   .single-entry{
     inline-t:block;
   }
@@ -143,3 +229,5 @@ body{
   .footer a:hover i{
     text-decoration: underline;
   }
+=======
+>>>>>>> 21cc3f56a96c491ac2c0045cacdc3f48dd0793df

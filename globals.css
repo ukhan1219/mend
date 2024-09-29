@@ -10,17 +10,18 @@ body {
 
 .container {
   height: 100vh;
-
-  html {
-    background-color: #FAFAFD;
-  }
-
-  body {
-    font-family: 'Fredoka', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
 }
+
+html {
+  background-color: #FAFAFD;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 
 .left {
   width: 50%;
@@ -155,6 +156,10 @@ body {
   display: block;
 }
 
+.cta:hover {
+  background-color: white;
+}
+
 footer {
   background-color: #415CC0;
   color: #fff;
@@ -175,9 +180,9 @@ footer {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   font-size: 16px;
-  z-index: 9999; 
-  opacity: 0; 
-  transform: translateY(-20px); 
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
