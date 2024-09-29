@@ -13,6 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
   <script src="../ts/index.js"></script>
+  <script src="Analysis.js"></script>
+  <script src="../ts/api/getWeeklyAnalysis.js"></script>
 </head>
 
 <body onload="checkLogin(); fetchJournalEntries();">
@@ -59,7 +61,11 @@
           <button type="submit" class="cta">Submit Entry</button>
         </div>
         <div class="analysis-link">
-          <a href="Analysis.html"><strong>View Weekly Analysis</strong></a>
+          <button id="view-analysis-btn" onclick="loadAnalysis()">View Weekly Analysis</button>
+        </div>
+
+        <div id="analysis-container">
+          <textarea id="analysis-text" placeholder="Your analysis will appear here..." rows="10" readonly></textarea>
         </div>
     </div>
 
