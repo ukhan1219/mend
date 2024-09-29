@@ -1,63 +1,49 @@
 <!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mend</title>
-    <link rel="stylesheet" href="globals.css">
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link rel="stylesheet" type="text/css" href="pages/index.css">
 </head>
-
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="./images/mend-text-white.png" alt="Mend logo">
-            </div>
-            <ul class="center-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Journaling</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="image-header">
-        
-    </div>
+  <nav class="navbar">
+    <img src="images/mend-text-white.png" class="mend-logo" alt="Mend Logo">
+   
+    <!-- navbar links -->
+    <ul class="nav-links">
+        <li><a href="index.html"><strong>HOME</strong></a></li>
+        <li><a href="pages/dashboard.html"><strong>JOURNAL</strong></a></li>
+        <li><a href="#"><strong>CONTACT</strong></a></li>
+      </ul>
+      <a href= "pages/login.html"><button class="login-btn"><strong>LOGIN</strong></button></a>
+  </nav>
 
-    <main>
-            <div class="container">
-                <div class="about-logo">
-                    <img src="/Users/thashinbhuiyan/Documents/shellhacks/mend/pages/images/mend-logo.png"
-                </div>
-                <div class="about">
-                    <div class="about-box">
-                        <h2>About Mend</h2>
-                        <p>fosho</p>
-                    </div>       
-                </div>
-            </div>
+  <header class="mend-brain-header">
+    <img src="images/mend-brain-header.png" class="mend-header" alt="brain header">
+     </header>
 
 
-        
-            <div class="container">
-                <div class="features">
-                <h2>Features</h2>
-                <p>yass</p>
-            </div>
+  <img src="images/mend-logo.png" class="mend-logo2" alt = "Mend full logo">
 
-        <button class="cta">Start Journaling</button>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>Created by Lily, Thashin, Usman, and Leo for Shellhacks</p>
-        </div>
-    </footer>
+  <h2 class="about-title">Why Mending is Important.</h2>
+  <div class = "about-box">
+  <!--add text here-->
+  <p>This is a blurb about the app.</p>
+</div>
+
+<div class="features-box">
+    <h2 class="features-title">How to Use:</h2>
+    <p class="how-to-use">This is a description of the features of the app.</p>
+</div>
+
+<button class="start-journaling-btn"><strong>Start Journaling</strong></button>
+
+<footer class = "footer">
+
+</footer>
 </body>
 </html>
