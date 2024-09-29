@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   <link rel="stylesheet" type="text/css" href="dashboard.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-  <script src="../ts/index.js"></script>
+  
+  <!-- Ensure the script is correctly referenced -->
+  <script src="../ts/index.js" defer></script>
 </head>
-
 <body onload="checkLogin(); fetchJournalEntries();">
   <nav class="navbar">
     <img src="../images/mend-text-white.png" class="mend-logo" alt="Mend Logo">
-    <!-- navbar links -->
+    <!-- Navbar links -->
     <ul class="nav-links">
-        <li><a href="../index.html"><strong>HOME</strong></a></li>
-        <li><a href="mailto: lsvrionis@gmail.com"><strong>CONTACT</strong></a></li>
+      <li><a href="../index.html"><strong>HOME</strong></a></li>
+      <li><a href="mailto:lsvrionis@gmail.com"><strong>CONTACT</strong></a></li>
     </ul>
   </nav>
 
@@ -42,22 +41,39 @@
       <div class="Entries">
         <div class="single-entry">
           <div class="entry-icon-date">
-            <a href="#"><i class="icon-size fa-solid fa-file-lines"></i></a>
-            <p class="entry-date">September 28th, 2024</p>
+            <p class="entry-date"></p>
           </div>
         </div>
       </div>
       <a href="#"><i class="icon-size fa-regular fa-plus"></i> Add Entry</a>
     </div>
+
+    <!-- Right side for adding a new journal entry and viewing entries -->
     <div class="right-side">
-      <form id="journal-entry-form" onsubmit="doJournalEntry(); return false;">
-        <div>
-          <label for="entryDate">Date:</label>
-          <input type="date" id="entryDate" required>
-        </div>
-        <div>
-          <textarea class="textbox" id="entryContent" placeholder="Enter text here..." rows="10" required></textarea>
-        <button type="submit" class="cta">Submit Entry</button>
+      <!-- Add Entry Container -->
+      <div id="add-entry-container">
+        <h2>Add New Entry</h2>
+        <form id="journal-entry-form" onsubmit="doJournalEntry(); return false;">
+          <div>
+            <label for="entryDate">Date:</label>
+            <input type="date" id="entryDate" required>
+          </div>
+          <div>
+            <label for="entryContent">Content:</label>
+            <textarea id="entryContent" placeholder="Enter text here..." rows="10" required></textarea>
+          </div>
+          <button type="submit" class="cta">Add Entry</button>
+        </form>
+      </div>
+
+      <!-- View Entry Container (Initially Hidden) -->
+      <div id="view-entry-container" style="display: none;">
+        <h2>Journal Entry</h2>
+        <p><strong>Date:</strong> <span id="view-entry-date"></span></p>
+        <p><strong>Content:</strong></p>
+        <p id="view-entry-content"></p>
+        <button onclick="showAddEntry()" class="cta">Back</button>
+      </div>
     </div>
   </div>
 
