@@ -282,4 +282,4 @@ function readCookie() {
     return { userID, firstName, lastName };
 }
 
-module.exports = readCookie;
+export default readCookie;
