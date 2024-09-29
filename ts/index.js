@@ -99,7 +99,7 @@ function doRegister() {
         return;
     }
 
-    let tmp = { firstName:firstName, lastName:lastName, email:email, username:username, password:password };
+    let tmp = { firstName: firstName, lastName: lastName, email: email, username: username, password: password };
     let payload = JSON.stringify(tmp);
     let url = urlBase + "/register." + extension;
 
@@ -117,7 +117,7 @@ function doRegister() {
                     if (err) {
                         showToast(err);
                         return;
-                    } 
+                    }
                     showToast("Registration successful");
                     window.location.href = "login.html";
                 } else {
@@ -218,9 +218,10 @@ function doLogin(event) {
                         showToast("Server error: " + xhr.status);
                     }
                 }
-        };
-        xhr.send(jsonPayload);
-    } catch (err) {
+            };
+            xhr.send(jsonPayload);
+        }
+    }  catch (err) {
         showToast(err);
     }
 }
