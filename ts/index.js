@@ -27,17 +27,21 @@ function fetchJournalEntries() {
                 journalEntriesBody.innerHTML = "";
 
                 // Populate the journal entries
-                for (let i = 0; i < journalEntries.length; i++) {
-                    let entry = journalEntries[i];
-                    let row = document.createElement("tr");
+                if (journalEntries && Array.isArray(journalEntries)) {
+                    for (let i = 0; i < journalEntries.length; i++) {
+                        let entry = journalEntries[i];
+                        let row = document.createElement("tr");
 
-                    row.setAttribute("data-id", entry.ID);
-                    row.innerHTML = `
+                        row.setAttribute("data-id", entry.ID);
+                        row.innerHTML = `
                         <td>${entry.entryDate}</td>
                         <td>${entry.entryContent}</td>
                     `;
 
-                    journalEntriesBody.appendChild(row);
+                        journalEntriesBody.appendChild(row);
+                    }
+                } else {
+                    showToast("No journal entries found or invalid response from the server.");
                 }
             }
         };
