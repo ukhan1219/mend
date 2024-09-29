@@ -35,7 +35,6 @@ function fetchJournalEntries() {
                         row.setAttribute("data-id", entry.ID);
                         row.innerHTML = `
                         <td>${entry.entryDate}</td>
-                        <td>${entry.entryContent}</td>
                     `;
 
                         journalEntriesBody.appendChild(row);
