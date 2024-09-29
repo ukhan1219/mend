@@ -34,10 +34,10 @@
   text-decoration: underline;
 }
 
-body {
-  margin: auto;
-  font-family: 'Fredoka', sans-serif;
-}
+body{
+    margin: auto;
+    font-family: Lato, sans-serif;
+  }
 
 .right-side {
   display: flex;
