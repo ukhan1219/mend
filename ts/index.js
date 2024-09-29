@@ -208,16 +208,18 @@ function doLogin(event) {
     try {
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
-                console.log(xhr.status);
-                console.log(xhr.responseText); // Log the raw response
+                console.log(xhr.status); // Log status code
+                console.log(xhr.responseText);  // Log the server response
                 if (xhr.status == 200) {
                     let jsonObject = JSON.parse(xhr.responseText);
                     if (jsonObject.success) {
                         saveCookie();
-                        window.location.href = "test.html";  // Redirect on success
+                        window.location.href = "account.html";
                     } else {
-                        showToast("Server error: " + xhr.status);
+                        showToast(jsonObject.message);
                     }
+                } else {
+                    showToast("Server error: " + xhr.status);
                 }
             };
             xhr.send(jsonPayload);
@@ -225,6 +227,7 @@ function doLogin(event) {
     } catch (err) {
         showToast(err);
     }
+
 }
 
 function doJournalEntry() {
