@@ -1,7 +1,4 @@
 
-header("Access-Control-Allow-Origin: *"); // CORS header
-header("Content-Type: application/json; charset=UTF-8");
-
 
 const urlBase = 'https://98.81.175.225/api';
 const extension = 'php';
@@ -124,11 +121,11 @@ function doRegister() {
 
                 if (err) {
                     showToast(err);
-
-                } else {
+                    return;
+                } 
                     showToast("Registration successful");
                     window.location.href = "login.html";
-                }
+                
             }
         };
         xhr.send(payload);
