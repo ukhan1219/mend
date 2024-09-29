@@ -14,7 +14,7 @@
 </head>
 <script src="../ts/index.js"></script>
 
-<body onload="checkLogin()">
+<body onload="checkLogin(); fetchJournalEntries();">
   <nav class="navbar">
     <img src="../images/mend-text-white.png" class="mend-logo" alt="Mend Logo">
     <!-- navbar links -->
@@ -27,15 +27,15 @@
   <div class="container">
     <div class="left-side">
       <h2>Entries:</h2>
-      <div class="Entries">
-        <div class="single-entry">
-          <div class="entry-icon-date">
-            <a href="#"><i class="icon-size fa-solid fa-file-lines"></i></a>
-            <p class="entry-date">September 28th, 2024</p>
-          </div>
-        </div>
-      </div>
-      <a href="#"><i class="icon-size fa-regular fa-plus"></i> Add Entry</a>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Content</th>
+        </tr>
+        <tbody id="journal-entries-body">
+          <!-- Journal entries will be injected here -->
+        </tbody>
+      </table>
     </div>
     <div class="right-side">
       <textarea placeholder="Enter text here..." type="text" class="textbox" id="text-box" rows="20" cols="20"></textarea>
