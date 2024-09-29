@@ -7,7 +7,8 @@
   }
 
   body{
-    margin: 0;
+    margin: auto;
+    font-family: 'Fredoka', sans-serif;
   }
   
   .mend-logo {
@@ -37,8 +38,9 @@
     justify-content: flex-end; 
     margin: 30px;
     float:right;
+    transition: margin-left 0.5s ease-in-out;
   }
-  .left-side {
+    .left-side {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
@@ -48,16 +50,29 @@
     border: 5px solid #99A9E3; 
     border-radius: 10px; 
     padding: 20px;
-    width: 250px; 
-    height: 300px;
+    width: 150px; 
+    height: 400px;
     margin: 30px;
+    transition: width 0.5s ease-in-out;
   }
-  
+  .left-side:hover {
+    width: 250px;
+  }
+  .file-size{
+    font-size: 40px;
+    color: #415CC0;
+  }
+  .file-size:hover{
+    color: #223782;
+  }
   .container {
     display: flex;
     height: max-content;
-    margin: 30px;
+    padding: 30px;
     flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+
   }
   .file-bar{
     background-color: #99a9e3;
@@ -84,3 +99,6 @@
     display: block;
   }
   textarea { resize:vertical; }
+  .single-entry{
+    inline-t:block;
+  }
