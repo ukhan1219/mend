@@ -88,6 +88,7 @@ function doForgotPassword() {
 }
 
 function doRegister() {
+    console.log("Form submitted");
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
     let email = document.getElementById("email").value;
@@ -113,13 +114,13 @@ function doRegister() {
                 if (xhr.status === 200) {
                     let jsonObject = JSON.parse(xhr.responseText);
                     let err = jsonObject.error;
-
                     if (err) {
                         showToast(err);
                         return;
                     }
                     showToast("Registration successful");
                     window.location.href = "login.html";
+
                 } else {
                     showToast("Error: " + xhr.statusText); // Handle unexpected HTTP response
                 }
@@ -221,7 +222,7 @@ function doLogin(event) {
             };
             xhr.send(jsonPayload);
         }
-    }  catch (err) {
+    } catch (err) {
         showToast(err);
     }
 }
