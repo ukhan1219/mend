@@ -61,28 +61,7 @@ body{
   width: 150px;
   height: 400px;
   margin: 30px;
-  transition: width 0.5s ease-in-out;
   transform: translateY(30px) ;
-}
-
-.left-side:hover {
-  width: 250px;
-}
-
-.icon-size {
-  font-size: 30px;
-  color: #415CC0;
-}
-
-.icon-size:hover {
-  color: #223782;
-}
-
-.single-entry {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
 }
 
 .entry-icon-date {
