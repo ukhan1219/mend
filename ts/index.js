@@ -101,7 +101,7 @@ function doRegister() {
         return;
     }
 
-    let tmp = { firstName: firstName, lastName: lastName, email: email, username: username, password: password };
+    let tmp = { firstName, lastName, email, username, password };
 
     let payload = JSON.stringify(tmp);
     let url = urlBase + "/register." + extension;

@@ -9,7 +9,7 @@ $username = $inData['username'];
 $password = $inData['password'];
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "mend");
+$conn = new mysqli("localhost", "API", "APIPASSWORD", "mend");
 
 if ($conn->connect_error){
     returnWithError($conn->connect_error);
