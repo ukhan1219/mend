@@ -4,7 +4,19 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once('config.php');
+// Database connection details
+$servername = "localhost";  // Replace with your server address
+$username = "your_db_username";  // Replace with your database username
+$password = "your_db_password";  // Replace with your database password
+$dbname = "your_db_name";  // Replace with your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 // Specify content type for the response
 header('Content-Type: application/json');
