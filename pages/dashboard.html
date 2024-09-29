@@ -47,7 +47,6 @@
           </div>
         </div>
       </div>
-      <a href="#"><i class="icon-size fa-regular fa-plus"></i> Add Entry</a>
     </div>
     <div class="right-side">
       <form id="journal-entry-form" onsubmit="doJournalEntry(); return false;">
@@ -58,6 +57,13 @@
         <div>
           <textarea class="textbox" id="entryContent" placeholder="Enter text here..." rows="10" required></textarea>
         <button type="submit" class="cta">Submit Entry</button>
+    </div>
+    <div id="entryModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-entry-date"></h2>
+        <p id="modal-entry-content"></p>
+      </div>
     </div>
   </div>
 
