@@ -1,5 +1,7 @@
 import { getWeeklyAnalysis } from '../ts/api/getWeeklyAnalysis.js';
-import readCookie from '../ts/index.js';  // Adjust path as needed
+// import readCookie from '../ts/index.js';  // Adjust path as needed
+import { readCookie } from '../ts/index.js';  // Import the named export
+
 
 let analysis = "";
 let userID = null;
