@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.readCookie = readCookie;
 const urlBase = 'http://98.81.175.225/api';
 const extension = 'php';
 let userID = 0;
@@ -219,3 +218,4 @@ function readCookie() {
     }
     return { userID, firstName, lastName };
 }
+exports.default = readCookie;
