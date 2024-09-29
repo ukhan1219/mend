@@ -6,6 +6,16 @@ let userID = 0;
 let firstName = "";
 let lastName = "";
 
+function checkLogin() {
+    let { userID } = readCookie(); // Check the login status by reading the cookie
+
+    if (userID < 0) {  // If the user is not logged in (userID < 0)
+        alert("You need to log in to access this page.");
+        window.location.href = "login.html"; // Redirect to login page
+    }
+}
+
+
 function doResetPassword() {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('token');
