@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *"); // CORS header
 header("Content-Type: application/json; charset=UTF-8");
 
 
-const urlBase = 'http://98.81.175.225/api';
+const urlBase = 'https://98.81.175.225/api';
 const extension = 'php';
 
 let userID = 0;
