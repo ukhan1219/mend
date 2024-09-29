@@ -15,9 +15,13 @@
 <body>
   <nav class="navbar">
     <img src="../images/mend-text-white.png" class="mend-logo" alt="Mend Logo">
-    <button class="hamburger-menu">
-        <i class="fas fa-bars" style="color: #FAFAFD;"></i>
-    </button>
+   
+    <!-- navbar links -->
+    <ul class="nav-links">
+        <li><a href="index.html"><strong>HOME</strong></a></li>
+        <li><a href="pages/dashboard.html"><strong>JOURNAL</strong></a></li>
+        <li><a href="mailto: lsvrionis@gmail.com"><strong>CONTACT</strong></a></li>
+      </ul>
   </nav>
 
   <div class="container">
@@ -25,13 +29,19 @@
       <h2>Entries:</h2>
       <div class="Entries">
         <div class="single-entry">
-          </div><i class="file-size fa-solid fa-file-lines"></i></div>
-          <div class="entry-date"><p>September 28th, 2024</p></div>
+          <i class="file-size fa-solid fa-file-lines"></i>
+          <span class="entry-date"><p>September 28th, 2024</p></span>
         </div>
     <div class="right-side">
       <textarea placeholder="Enter text here..." type="text" class="textbox" id="text-box"  rows="20" cols="20"></textarea>
       <button class="cta">Submit Entry</button>
     </div>
   </div>
+
+  <footer class="footer">
+    <a href="https://github.com/ukhan1219/mend" target="_blank"><i class="fa-brands fa-github"></i></a>
+    <a href="mailto:lsvrionis@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+  </footer>
+  
 </body>
 </html>
