@@ -67,12 +67,12 @@
       </div>
 
       <!-- View Entry Container (Initially Hidden) -->
-      <div id="view-entry-container" style="display: none;">
-        <h2>Journal Entry</h2>
-        <p><strong>Date:</strong> <span id="view-entry-date"></span></p>
-        <p><strong>Content:</strong></p>
-        <p id="view-entry-content"></p>
-        <button onclick="showAddEntry()" class="cta">Back</button>
+      <div id="entryModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2 id="modal-entry-date">Entry Date</h2>
+          <p id="modal-entry-content">Entry Content</p>
+        </div>
       </div>
     </div>
   </div>

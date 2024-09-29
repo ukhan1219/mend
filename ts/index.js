@@ -59,23 +59,29 @@ function viewEntry(id) {
     // Find the entry with the given ID
     let entry = journalEntriesData.find(e => e.ID === id);
     if (entry) {
-        // Populate the view entry container with entry details
-        document.getElementById("view-entry-date").textContent = entry.entryDate;
-        document.getElementById("view-entry-content").textContent = entry.entryContent;
+        // Populate the modal with entry details
+        document.getElementById("modal-entry-date").textContent = entry.entryDate;
+        document.getElementById("modal-entry-content").textContent = entry.entryContent;
 
-        // Toggle visibility of containers
-        document.getElementById("add-entry-container").style.display = "none";
-        document.getElementById("view-entry-container").style.display = "block";
+        // Show the modal
+        document.getElementById("entryModal").style.display = "block";
     } else {
         showToast("Entry not found.");
     }
 }
 
-function showAddEntry() {
-    // Toggle visibility of containers
-    document.getElementById("view-entry-container").style.display = "none";
-    document.getElementById("add-entry-container").style.display = "block";
+function closeModal() {
+    document.getElementById("entryModal").style.display = "none";
 }
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    let modal = document.getElementById("entryModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 
 function checkLogin() {
     let { userID } = readCookie(); // Check the login status by reading the cookie
