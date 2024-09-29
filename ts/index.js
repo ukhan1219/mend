@@ -174,7 +174,7 @@ function doLogin() {
                 saveCookie();
 
 
-                window.location.href = "pages/dashboard.html";
+                window.location.href = "../pages/dashboard.html";
             }
         };
         xhr.send(jsonPayload);
