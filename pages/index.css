@@ -139,6 +139,11 @@
     margin: 20px auto; 
     margin-top: 70px;
     margin-bottom: 100px;
+    transition: background-color 0.1s ease;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .start-journaling-btn:hover{
