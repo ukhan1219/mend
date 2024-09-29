@@ -15,10 +15,10 @@
         </div>
         <div class="right">
             <h2>Log In</h2>
-            <form>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button>Sign in</button>
+            <form id="loginForm" onsubmit="doLogin(); return False;">
+                <input id="username" type="text" placeholder="Username">
+                <input id="password" type="password" placeholder="Password">
+                <button type="submit">Sign in</button>
             </form>
             <a href="password.html" class="underline-link">Forgot Password?</a>
             <a href="account.html" class="underline-link">Create Account</a>

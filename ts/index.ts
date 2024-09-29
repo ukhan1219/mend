@@ -139,8 +139,8 @@ function doLogin() {
     firstName = "";
     lastName = "";
 
-    let username = document.getElementById("username")?.ariaValueMax;
-    let password = document.getElementById("password")?.ariaValueMax;
+    let username = (document.getElementById("username") as HTMLInputElement).value;
+    let password = (document.getElementById("password") as HTMLInputElement).value;
 
     let tmp = { username: username, password: password };
     let jsonPayload = JSON.stringify(tmp);
@@ -163,7 +163,6 @@ function doLogin() {
                 if (userID < 1) {
                     showToast("Username/Password combination incorrect");
                     return;
-                    // might not need 
                 }
 
                 firstName = jsonObject.firstName;
@@ -171,7 +170,7 @@ function doLogin() {
 
                 saveCookie();
 
-                window.location.href = "account.html"
+                window.location.href = "test.html";
             }
         };
         xhr.send(jsonPayload);
