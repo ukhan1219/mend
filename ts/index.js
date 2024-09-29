@@ -1,5 +1,3 @@
-
-
 const urlBase = 'https://98.81.175.225/api';
 const extension = 'php';
 
@@ -208,16 +206,18 @@ function doLogin(event) {
 
     try {
         xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
+            if (xhr.readyState == 4) {
+                console.log(xhr.status);
                 console.log(xhr.responseText); // Log the raw response
-                let jsonObject = JSON.parse(xhr.responseText);
-                if (jsonObject.success) {
-                    saveCookie();
-                    window.location.href = "account.html";  // Redirect on success
-                } else {
-                    showToast(jsonObject.message);
+                if (xhr.status == 200) {
+                    let jsonObject = JSON.parse(xhr.responseText);
+                    if (jsonObject.success) {
+                        saveCookie();
+                        window.location.href = "test.html";  // Redirect on success
+                    } else {
+                        showToast("Server error: " + xhr.status);
+                    }
                 }
-            }
         };
         xhr.send(jsonPayload);
     } catch (err) {
