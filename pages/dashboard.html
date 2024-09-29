@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
   <link rel="stylesheet" type="text/css" href="dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar">
@@ -14,12 +17,19 @@
         <i class="fas fa-bars" style="color: #FAFAFD;"></i>
     </button>
   </nav>
+
   <div class="container">
-
-    <input type="text" class="textbox" placeholder="> start journaling">
-
-    <textarea placeholder="Enter text here" type="text" class="textbox" id="text-box"  rows="20" cols="20"></textarea>
-
+    <div class="left-side">
+      <h2>Entries:</h2>
+      <div class="Entries">
+        <div class="single-entry">
+          </div><i class="file-size fa-solid fa-file-lines"></i></div>
+          <div class="entry-date"><p>September 28th, 2024</p></div>
+        </div>
+    <div class="right-side">
+      <textarea placeholder="Enter text here..." type="text" class="textbox" id="text-box"  rows="20" cols="20"></textarea>
+      <button class="cta">Submit Entry</button>
+    </div>
   </div>
 </body>
 </html>

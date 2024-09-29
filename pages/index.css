@@ -36,7 +36,7 @@
   }
   
   .nav-links a:hover {
-    color: #b2b2d5;
+    text-decoration: underline;
   }
   
   .login-btn {
@@ -78,18 +78,20 @@
     padding: 20px; 
     width: 500px; 
     position: absolute; 
-    top: 80%; 
+    top: 75%; 
     right: 200px; 
     transform: translateY(-50%); 
+    z-index: 1;
   }
 
   .about-title{
     font-size: 24px;
     font-weight: bold;
     position: absolute;
-    top: 65%;
+    top: 52%;
     left: 791px;
     color: #5C77D9;
+    z-index: 2;
   }
 
   .features-box {
@@ -101,14 +103,21 @@
     height: 300px;
     margin: 20px auto;
     box-shadow: -20px 20px 0px rgba(153, 169, 227);
+    color: #203454;
+    font-family: Lato, sans-serif;
+    font-size: 20px;
+    line-height: 2.0;
   }
 
   .features-title{
     color: #5C77D9;
+    font-family: Lato, sans-serif;
+    margin-bottom: 0px;
   }
 
   .how-to-use{
     color:#99A9E3;
+    font-family: Lato, sans-serif;
   }
 
   .start-journaling-btn {
@@ -116,12 +125,13 @@
     color: #FAFAFD;
     border: none;
     border-radius: 20px; 
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 15px 30px;
+    letter-spacing: 1px;
+    font-size: 24px;
     cursor: pointer;
     display: block;
     margin: 20px auto; 
-    margin-top: 50px;
+    margin-top: 70px;
     margin-bottom: 100px;
   }
 
@@ -132,7 +142,21 @@
 
   .footer{
     background-color: #415CC0;
-    padding: 30px;
-    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px;
+  }
+
+  .footer i{
+    font-size: 35px;
     color: #FAFAFD;
+    margin: 0 10px;
+  }
+
+  .footer a:hover i{
+    text-decoration: underline;
+  }
+
+  p.description{
+    color: #203454;
   }
