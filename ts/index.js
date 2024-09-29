@@ -186,7 +186,7 @@ function doLogin() {
 */
 
 function doLogin(event) {
-    event.preventDefault();  // Prevent form submission
+    event.preventDefault();  // Prevent the form's default submission
 
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -198,7 +198,7 @@ function doLogin(event) {
 
     let tmp = { username: username, password: password };
     let jsonPayload = JSON.stringify(tmp);
-    let url = urlBase + "/login.php";
+    let url = "your_php_script_path/login.php";  // Make sure this URL is correct
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
@@ -208,26 +208,24 @@ function doLogin(event) {
     try {
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
-                console.log(xhr.status); // Log status code
-                console.log(xhr.responseText);  // Log the server response
+                console.log("Response received", xhr.responseText);  // Log the response to see what the server is returning
                 if (xhr.status == 200) {
                     let jsonObject = JSON.parse(xhr.responseText);
                     if (jsonObject.success) {
                         saveCookie();
-                        window.location.href = "account.html";
+                        window.location.href = "account.html";  // Redirect on success
                     } else {
                         showToast(jsonObject.message);
                     }
                 } else {
                     showToast("Server error: " + xhr.status);
                 }
-            };
-            xhr.send(jsonPayload);
-        }
+            }
+        };
+        xhr.send(jsonPayload);
     } catch (err) {
-        showToast(err);
+        showToast("Error: " + err);
     }
-
 }
 
 function doJournalEntry() {
