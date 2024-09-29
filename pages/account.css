@@ -15,12 +15,12 @@ body {
 
 .left {
     width: 50%;
-    background-color: #2A2B30;
+    background-color: #415CC0;
 }
 
 .right {
     width: 50%;
-    background-color: #D9D9D9;
+    background-color: #fff9f4;
     display: flex;
     flex-direction: column;
     justify-content: center;
