@@ -2,13 +2,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
-    <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="register.css">
 </head>
-    <script type="text/typescript" src="ts/index.ts"></script>
+<script src="../ts/index.js"></script>
+
 </head>
 
 <body>
@@ -19,9 +21,9 @@
         <div class="right">
             <h2>Create Account</h2>
             <form id="registerForm" onsubmit="doRegister(); return false;">
-                <input type="name" id="firstName" placeholder="First Name" required>
-                <input type="last" id="lastName" placeholder="Last Name" required>
-                <input type="user" id="username" placeholder="Username" required>
+                <input type="text" id="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" placeholder="Last Name" required>
+                <input type="text" id="username" placeholder="Username" required>
                 <input type="email" id="email" placeholder="Email" required>
                 <input type="password" id="password" placeholder="Password" required>
                 <button class="buttonSignup" type="submit">Sign Up</button>
@@ -33,4 +35,5 @@
     <span id="toast-message"></span>
     </div>
 </body>
+
 </html>
