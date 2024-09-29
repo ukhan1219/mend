@@ -5,10 +5,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Database connection details
-$servername = "localhost";  // Replace with your server address
-$username = "your_db_username";  // Replace with your database username
-$password = "your_db_password";  // Replace with your database password
-$dbname = "your_db_name";  // Replace with your database name
+$servername = "98.81.175.225";  // Replace with your server address
+$username = "API";  // Replace with your database username
+$password = "APIPASSWORD";  // Replace with your database password
+$dbname = "mend";  // Replace with your database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
