@@ -15,11 +15,19 @@ if ($conn->connect_error){
     returnWithError($conn->connect_error);
 } else{
     $stmt = $conn->prepare("INSERT INTO users (firstName, lastName, email, username, password) VALUES (?,?,?,?,?)");
-    $stmt->bind_param("sssss",  $firstName, $lastName, $email, $username, $password);
-    $stmt->execute();
-    $stmt->close();
+    if ($stmt) {
+        $stmt->bind_param("sssss", $firstName, $lastName, $email, $username, $hashedPassword);
+        if ($stmt->execute()) {
+            returnWithError(""); // Success
+        } else {
+            returnWithError($stmt->error); // Error from SQL execution
+        }
+        $stmt->close();
+    } else {
+        returnWithError($conn->error); // Error from prepare statement
+    }
     $conn->close();
-    returnWithError("");
+    
 
 }
 
