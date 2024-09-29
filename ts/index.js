@@ -56,13 +56,11 @@ function fetchJournalEntries() {
 }
 
 function viewEntry(id) {
-    // Find the entry with the given ID
     let entry = journalEntriesData.find(e => e.ID === id);
+    console.log("Redirecting to entry: ", entry); // Debugging line
     if (entry) {
-        // Construct a URL with query parameters to pass the entry details
-        const entryUrl = `viewEntry.html?id=${entry.ID}&date=${encodeURIComponent(entry.entryDate)}&content=${encodeURIComponent(entry.entryContent)}`;
-        
-        // Redirect to the new page
+        const entryUrl = `pages/viewEntry.html?id=${entry.ID}&date=${encodeURIComponent(entry.entryDate)}&content=${encodeURIComponent(entry.entryContent)}`;
+        console.log("Redirecting to: ", entryUrl); // Debugging line
         window.location.href = entryUrl;
     } else {
         showToast("Entry not found.");
