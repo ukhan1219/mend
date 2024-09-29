@@ -1,7 +1,6 @@
 import { getWeeklyAnalysis } from '../ts/api/getWeeklyAnalysis.js';
 import readCookie from '../ts/index.js';  // Adjust path as needed
 
-// Manually managing state with variables
 let analysis = "";
 let userID = null;
 
@@ -12,10 +11,13 @@ function loadAnalysis() {
     if (userID > 0) {
         getWeeklyAnalysis(userID).then(result => {
             analysis = result.analysisSummary || "No analysis available";
-            document.getElementById('analysis').innerText = analysis;
+            document.getElementById('analysis-text').innerText = analysis;
+        }).catch(error => {
+            console.error("Error fetching analysis: ", error);
+            document.getElementById('analysis-text').innerText = "Error fetching analysis.";
         });
     } else {
-        document.getElementById('analysis').innerText = "User ID not found. Please log in.";
+        document.getElementById('analysis-text').innerText = "User ID not found. Please log in.";
     }
 }
 
