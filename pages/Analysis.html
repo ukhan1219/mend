@@ -53,25 +53,6 @@
     <a href="https://github.com/ukhan1219/mend" target="_blank"><i class="fa-brands fa-github"></i></a>
     <a href="mailto:lsvrionis@gmail.com"><i class="fa-solid fa-envelope"></i></a>
   </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const reflectBtns = document.querySelectorAll(".reflect-btn");
-      reflectBtns.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          const entryDate = e.target.parentNode.querySelector(".entry-date").textContent;
-          getAnalysis(entryDate);
-        });
-      });
-    });
-
-    function getAnalysis(entryDate) {
-      // Call AI analysis API 
-      const analysisText = getDummyAnalysis(entryDate);
-      document.getElementById("analysis-text").textContent = analysisText;
-    }
-
-    <!-- Scripts -->
     <script src="../ts/index.js"></script> <!-- For readCookie -->
     <script src="../ts/api/getWeeklyAnalysis.js"></script> <!-- Adjust path for getWeeklyAnalysis -->
     <script src="Analysis.js"></script> <!-- Your analysis.js -->
