@@ -15,7 +15,7 @@ if ($conn->connect_error){
     returnWithError($conn->connect_error);
 } else{
     $stmt = $conn->prepare("INSERT INTO users (firstName, lastName, email, username, password) VALUES (?,?,?,?,?)");
-    $stmt->bind_param("sssss",  $firstName, $lastName, $email, $username, $hashedPassword);
+    $stmt->bind_param("sssss",  $firstName, $lastName, $email, $username, $password);
     $stmt->execute();
     $stmt->close();
     $conn->close();
