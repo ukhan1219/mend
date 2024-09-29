@@ -282,7 +282,7 @@ function doJournalEntry() {
 
                 showToast("Journal entry added successfully");
                 // Optionally, you can redirect the user to another page or reset the form fields
-                // window.location.href = "journalEntries.html";
+                window.location.href = "dashboard.html";
             }
         };
         xhr.send(payload);
