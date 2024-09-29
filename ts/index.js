@@ -1,6 +1,6 @@
 
 
-const urlBase = 'http://98.81.175.225/api';
+const urlBase = 'http://98.81.175.225/LAMPAPI';
 const extension = 'php';
 
 let userID = 0;
