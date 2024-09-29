@@ -56,19 +56,16 @@ function fetchJournalEntries() {
 }
 
 function viewEntry(id) {
-    // Find the entry with the given ID
     let entry = journalEntriesData.find(e => e.ID === id);
     if (entry) {
-        // Populate the modal with entry details
         document.getElementById("modal-entry-date").textContent = entry.entryDate;
         document.getElementById("modal-entry-content").textContent = entry.entryContent;
-
-        // Show the modal
-        document.getElementById("entryModal").style.display = "block";
+        document.getElementById("entryModal").style.display = "block"; // Shows modal
     } else {
         showToast("Entry not found.");
     }
 }
+
 
 function closeModal() {
     document.getElementById("entryModal").style.display = "none";
