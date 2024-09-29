@@ -50,6 +50,32 @@
       <a href="#"><i class="icon-size fa-regular fa-plus"></i> Add Entry</a>
     </div>
     <div class="right-side">
+<<<<<<< HEAD
+      <!-- Add Entry Container -->
+      <div id="add-entry-container">
+        <h2>Add New Entry</h2>
+        <form id="journal-entry-form" onsubmit="doJournalEntry(); return false;">
+          <div>
+            <label for="entryDate">Date:</label>
+            <input type="date" id="entryDate" required>
+          </div>
+          <div>
+            <label for="entryContent">Content:</label>
+            <textarea id="entryContent" placeholder="Enter text here..." rows="10" required></textarea>
+          </div>
+          <button type="submit" class="cta">Add Entry</button>
+        </form>
+      </div>
+
+      <!-- View Entry Container (Initially Hidden) -->
+      <div id="entryModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2 id="modal-entry-date">Entry Date</h2>
+          <p id="modal-entry-content">Entry Content</p>
+        </div>
+      </div>
+=======
       <form id="journal-entry-form" onsubmit="doJournalEntry(); return false;">
         <div>
           <label for="entryDate">Date:</label>
@@ -58,6 +84,7 @@
         <div>
           <textarea class="textbox" id="entryContent" placeholder="Enter text here..." rows="10" required></textarea>
         <button type="submit" class="cta">Submit Entry</button>
+>>>>>>> origin/main
     </div>
   </div>
 
