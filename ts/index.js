@@ -375,3 +375,4 @@ function readCookie() {
 }
 
 // export default readCookie;
+export { readCookie }; // named export
