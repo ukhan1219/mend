@@ -1,6 +1,7 @@
 import React,  { useState, useEffect } from 'react';
 import { getWeeklyAnalysis } from '../ts/api/getWeeklyAnalysis';
-import {readCookie } from '../ts/index';
+import readCookie from '../dist/index.js';
+
 
 const Analysis: React.FC = () => {
     const [analysis,  setAnalysis] = useState<string>("");

@@ -276,4 +276,5 @@ function readCookie() {
     return { userID, firstName, lastName };
 }
 
-export {readCookie};
+export default readCookie;
+
