@@ -88,14 +88,11 @@ function doForgotPassword() {
 }
 
 function doRegister() {
-
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
     let email = document.getElementById("email").value;
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
-    
-
 
     if (firstName === "" || lastName === "" || username === "" || password === "" || email === "") {
         showToast("Please fill in all fields");
@@ -103,35 +100,37 @@ function doRegister() {
     }
 
     let tmp = { firstName:firstName, lastName:lastName, email:email, username:username, password:password };
-
     let payload = JSON.stringify(tmp);
     let url = urlBase + "/register." + extension;
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
-
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
     try {
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                let jsonObject = JSON.parse(xhr.responseText);
-                let err = jsonObject.err;
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    let jsonObject = JSON.parse(xhr.responseText);
+                    let err = jsonObject.error;
 
-                if (err) {
-                    showToast(err);
-                    return;
-                } 
+                    if (err) {
+                        showToast(err);
+                        return;
+                    } 
                     showToast("Registration successful");
                     window.location.href = "login.html";
-                
+                } else {
+                    showToast("Error: " + xhr.statusText); // Handle unexpected HTTP response
+                }
             }
         };
         xhr.send(payload);
     } catch (error) {
-        console.log(error)
+        showToast("Error: " + error.message); // Catch errors in a more informative way
     }
 }
+
 
 /*
 function doLogin() {
