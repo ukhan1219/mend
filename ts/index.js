@@ -5,6 +5,9 @@ let userID = 0;
 let firstName = "";
 let lastName = "";
 
+let journalEntriesData = [];
+
+
 function fetchJournalEntries() {
     readCookie();
 
@@ -26,16 +29,18 @@ function fetchJournalEntries() {
                 let journalEntriesBody = document.getElementById("journal-entries-body");
                 journalEntriesBody.innerHTML = "";
 
+                // Store fetched entries in the global variable
+                journalEntriesData = journalEntries;
+
                 // Populate the journal entries
                 if (journalEntries && Array.isArray(journalEntries)) {
                     for (let i = 0; i < journalEntries.length; i++) {
                         let entry = journalEntries[i];
                         let row = document.createElement("tr");
 
-                        row.setAttribute("data-id", entry.ID);
                         row.innerHTML = `
-                        <td>${entry.entryDate}</td>
-                    `;
+                            <td><a href="#" onclick="viewEntry(${entry.ID})">${entry.entryDate}</a></td>
+                        `;
 
                         journalEntriesBody.appendChild(row);
                     }
@@ -50,6 +55,27 @@ function fetchJournalEntries() {
     }
 }
 
+function viewEntry(id) {
+    // Find the entry with the given ID
+    let entry = journalEntriesData.find(e => e.ID === id);
+    if (entry) {
+        // Populate the view entry container with entry details
+        document.getElementById("view-entry-date").textContent = entry.entryDate;
+        document.getElementById("view-entry-content").textContent = entry.entryContent;
+
+        // Toggle visibility of containers
+        document.getElementById("add-entry-container").style.display = "none";
+        document.getElementById("view-entry-container").style.display = "block";
+    } else {
+        showToast("Entry not found.");
+    }
+}
+
+function showAddEntry() {
+    // Toggle visibility of containers
+    document.getElementById("view-entry-container").style.display = "none";
+    document.getElementById("add-entry-container").style.display = "block";
+}
 
 function checkLogin() {
     let { userID } = readCookie(); // Check the login status by reading the cookie
@@ -281,7 +307,7 @@ function doJournalEntry() {
 
                 showToast("Journal entry added successfully");
                 // Optionally, you can redirect the user to another page or reset the form fields
-                window.location.href = "dashboard.html";
+                fetchJournalEntries();
             }
         };
         xhr.send(payload);
