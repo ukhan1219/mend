@@ -133,7 +133,7 @@ function doRegister() {
 }
 
 
-/*
+
 function doLogin() {
     userID = 0;
     firstName = "";
@@ -181,50 +181,6 @@ function doLogin() {
     } catch (err) {
 
         showToast(err);
-    }
-}
-*/
-
-function doLogin(event) {
-    event.preventDefault();  // Prevent the form's default submission
-
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-
-    if (username === "" || password === "") {
-        showToast("Please fill in both fields");
-        return;
-    }
-
-    let tmp = { username: username, password: password };
-    let jsonPayload = JSON.stringify(tmp);
-    let url = "https://98.81.175.225/LAMPAPI/login.php";  // Make sure this URL is correct
-
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-    try {
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
-                console.log("Response received", xhr.responseText);  // Log the response to see what the server is returning
-                if (xhr.status == 200) {
-                    let jsonObject = JSON.parse(xhr.responseText);
-                    if (jsonObject.success) {
-                        saveCookie();
-                        window.location.href = "test.html";  // Redirect on success
-                    } else {
-                        showToast(jsonObject.message);
-                    }
-                } else {
-                    showToast("Server error: " + xhr.status);
-                }
-            }
-        };
-        xhr.send(jsonPayload);
-    } catch (err) {
-        showToast("Error: " + err);
     }
 }
 
