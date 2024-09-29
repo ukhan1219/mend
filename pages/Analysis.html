@@ -1,35 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Analysis</title>
-    <!-- Optional: Add styles for layout -->
-    <link rel="stylesheet" href="path-to-your-styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis</title>
+  <link rel="stylesheet" href="analysis.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <script src="../ts/index.js"></script>
 </head>
-<body onload="loadAnalysis()">
 
-    <!-- Navbar or header if needed -->
-    <nav>
-        <a href="../index.html"><strong>HOME</strong></a>
-        <a href="mailto:example@example.com"><strong>CONTACT</strong></a>
-    </nav>
+<body>
+  <nav class="navbar">
+    <img src="../images/mend-text-white.png" class="mend-logo" alt="Mend Logo">
+    <!-- navbar links -->
+    <ul class="nav-links">
+      <li><a href="../index.html"><strong>HOME</strong></a></li>
+      <li><a href="mailto: lsvrionis@gmail.com"><strong>CONTACT</strong></a></li>
+    </ul>
+  </nav>
 
-    <!-- Main content for displaying the analysis -->
-    <div class="container">
-        <h1>Your Weekly Analysis</h1>
-        <p id="analysis">Loading your analysis...</p>
+  <div class="container">
+    <!-- Left side displaying existing journal entries -->
+    <div class="left-side">
+      <h2>Entries:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="journal-entries-body">
+          <!-- Journal entries will be injected here -->
+        </tbody>
+      </table>
+      <div class="Entries">
+        <div class="single-entry">
+          <div class="entry-icon-date">
+            <p class="entry-date"></p>
+          </div>
+          <button class="reflect-btn">Reflect?</button>
+        </div>
+      </div>
     </div>
+    <div class="right-side">
+      <div class="analysis-container">
+        <h2>Analysis:</h2>
+        <div id="analysis-text"></div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Footer if needed -->
-    <footer>
-        <a href="https://github.com/ukhan1219/mend" target="_blank">GitHub</a>
-        <a href="mailto:lsvrionis@gmail.com">Contact</a>
-    </footer>
+  <footer class="footer">
+    <a href="https://github.com/ukhan1219/mend" target="_blank"><i class="fa-brands fa-github"></i></a>
+    <a href="mailto:lsvrionis@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const reflectBtns = document.querySelectorAll(".reflect-btn");
+      reflectBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const entryDate = e.target.parentNode.querySelector(".entry-date").textContent;
+          getAnalysis(entryDate);
+        });
+      });
+    });
+
+    function getAnalysis(entryDate) {
+      // Call AI analysis API 
+      const analysisText = getDummyAnalysis(entryDate);
+      document.getElementById("analysis-text").textContent = analysisText;
+    }
 
     <!-- Scripts -->
     <script src="../ts/index.js"></script> <!-- For readCookie -->
     <script src="../ts/api/getWeeklyAnalysis.js"></script> <!-- Adjust path for getWeeklyAnalysis -->
     <script src="Analysis.js"></script> <!-- Your analysis.js -->
+
 </body>
 </html>
