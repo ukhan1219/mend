@@ -139,8 +139,8 @@ function doLogin() {
     firstName = "";
     lastName = "";
 
-    let username = document.getElementById("username")?.ariaValueMax;
-    let password = document.getElementById("password")?.ariaValueMax;
+    let username = (document.getElementById("username") as HTMLInputElement).value;
+    let password = (document.getElementById("password") as HTMLInputElement).value;
 
     let tmp = { username: username, password: password };
     let jsonPayload = JSON.stringify(tmp);
